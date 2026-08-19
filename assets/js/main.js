@@ -88,6 +88,27 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  /* ---- About page: highlight the active chapter in the sticky sub-nav ---- */
+  const storyNav = document.getElementById('storyNav');
+  if (storyNav) {
+    const storyLinks = storyNav.querySelectorAll('a[data-story]');
+    const storySections = Array.from(storyLinks)
+      .map(link => document.getElementById(link.dataset.story))
+      .filter(Boolean);
+
+    if ('IntersectionObserver' in window && storySections.length) {
+      const setActive = (id) => {
+        storyLinks.forEach(link => link.classList.toggle('active', link.dataset.story === id));
+      };
+      const storyIO = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) setActive(entry.target.id);
+        });
+      }, { rootMargin: '-140px 0px -60% 0px', threshold: 0 });
+      storySections.forEach(sec => storyIO.observe(sec));
+    }
+  }
+
   /* ---- Contact form (static demo — no backend wired up) ---- */
   const contactForm = document.getElementById('contact-form');
   if (contactForm) {

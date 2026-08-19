@@ -543,3 +543,90 @@ footer{background:var(--pine-950);color:rgba(255,255,255,.6);padding:70px 0 34px
   .form-row{grid-template-columns:1fr;}
   .contact-form{padding:28px;}
 }
+
+/* ============================================================
+   NEW — About page: one-page storytelling additions
+   (chapter sub-nav, journey timeline, image placeholders,
+   "why us" grid). Reuses the same tokens, radii and shadows
+   defined above; introduces no new colors.
+   ============================================================ */
+
+.about-hero-sub{margin-top:18px;max-width:600px;color:rgba(255,255,255,.78);font-size:15.5px;line-height:1.7;}
+
+/* Anchor targets should clear the fixed nav + sticky chapter bar */
+#who-we-are, #our-journey, #vision-mission, #why-tiszta-viz{scroll-margin-top:132px;}
+
+/* --- Chapter sub-nav: sticks under the main nav as you scroll --- */
+.story-nav{
+  position:sticky;top:70px;z-index:150;
+  background:rgba(255,255,255,.94);backdrop-filter:blur(10px);
+  border-bottom:1px solid rgba(11,56,51,.08);
+}
+.story-nav-inner{
+  display:flex;gap:6px;padding:13px 32px;
+  overflow-x:auto;-ms-overflow-style:none;scrollbar-width:none;
+}
+.story-nav-inner::-webkit-scrollbar{display:none;}
+.story-nav a{
+  font-family:'Space Grotesk',sans-serif;font-size:13.5px;font-weight:600;
+  color:var(--slate);padding:8px 17px;border-radius:100px;white-space:nowrap;
+  transition:background .2s ease, color .2s ease;
+}
+.story-nav a:hover{color:var(--pine-900);}
+.story-nav a.active{background:var(--mint-100);color:var(--pine-900);}
+
+/* --- Our Journey: vertical timeline (dark section) --- */
+.timeline{position:relative;margin-top:60px;}
+.timeline::before{
+  content:"";position:absolute;left:27px;top:6px;bottom:6px;width:2px;
+  background:linear-gradient(180deg, var(--teal-400), rgba(255,255,255,.1));
+}
+.timeline-item{position:relative;padding-left:76px;}
+.timeline-item + .timeline-item{margin-top:64px;}
+.timeline-marker{
+  position:absolute;left:18px;top:6px;width:18px;height:18px;border-radius:50%;
+  background:var(--pine-950);border:3px solid var(--teal-400);
+  box-shadow:0 0 0 6px rgba(46,179,158,.14);
+}
+.timeline-content h3{color:var(--white);font-size:19px;font-weight:700;margin-top:22px;}
+.timeline-content p{margin-top:10px;color:rgba(255,255,255,.7);font-size:14.5px;line-height:1.72;max-width:640px;}
+
+/* --- Reusable image placeholder (for content the client will add later) --- */
+.placeholder-media{
+  width:100%;max-width:520px;aspect-ratio:16/9;border-radius:var(--radius-md);
+  border:1.5px dashed rgba(255,255,255,.28);background:rgba(255,255,255,.03);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;
+  color:rgba(255,255,255,.42);
+}
+.placeholder-media .ph-icon svg{width:28px;height:28px;}
+.placeholder-media .ph-label{
+  font-family:'Space Grotesk',sans-serif;font-size:11.5px;font-weight:600;
+  letter-spacing:.08em;text-transform:uppercase;
+}
+
+/* --- Why Tiszta Víz: numbered advantage grid (dark section) --- */
+.why-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:24px;margin-top:48px;}
+.why-card{
+  flex:1 1 300px;max-width:368px;
+  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);
+  border-radius:var(--radius-lg);padding:32px 28px;
+  transition:transform .3s ease, background .3s ease;
+}
+.why-card:hover{transform:translateY(-6px);background:rgba(255,255,255,.07);}
+.why-num{
+  width:38px;height:38px;border-radius:50%;
+  border:1.5px solid rgba(141,220,201,.4);color:var(--teal-300);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:14.5px;
+  margin-bottom:18px;
+}
+.why-card h3{color:var(--white);font-size:17.5px;font-weight:700;}
+.why-card p{margin-top:8px;color:rgba(255,255,255,.68);font-size:14.5px;line-height:1.65;}
+
+@media (max-width: 640px){
+  .why-card{flex:1 1 100%;max-width:none;}
+  .timeline::before{left:21px;}
+  .timeline-item{padding-left:58px;}
+  .timeline-marker{left:12px;width:16px;height:16px;}
+  .story-nav{top:64px;}
+}
