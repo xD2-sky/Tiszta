@@ -649,3 +649,166 @@ footer{background:var(--pine-950);color:rgba(255,255,255,.6);padding:70px 0 34px
   .timeline-marker{left:12px;width:16px;height:16px;}
   .story-nav{top:64px;}
 }
+
+/* ============================================================
+   TECHNOLOGIES PAGE — ISOLATED REDESIGN
+   All rules below are prefixed "tp-" and are only ever used on
+   technologies.html. They do not modify or override any shared
+   class, so no other page is affected by this block.
+   ============================================================ */
+
+/* ---- Hero ---- */
+.tp-hero{position:relative;padding:168px 0 96px;overflow:hidden;background:#062E2B;}
+.tp-hero-bg{position:absolute;inset:0;}
+.tp-hero-bg img{width:100%;height:100%;object-fit:cover;}
+.tp-hero-bg::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(115deg, rgba(6,32,29,.94) 20%, rgba(6,46,43,.75) 55%, rgba(53,198,179,.16) 100%);
+}
+.tp-hero-inner{position:relative;z-index:2;}
+.tp-eyebrow{
+  display:flex;align-items:center;gap:10px;
+  font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:600;
+  letter-spacing:.12em;text-transform:uppercase;color:#7FE3D2;
+}
+.tp-eyebrow::before{content:"";width:22px;height:2px;background:#35C6B3;display:inline-block;}
+.tp-h1{
+  font-family:'Space Grotesk',sans-serif;font-weight:700;color:#FFFFFF;
+  font-size:clamp(34px,5vw,58px);line-height:1.08;margin-top:20px;max-width:720px;
+}
+.tp-hero-sub{margin-top:22px;max-width:560px;font-size:16px;line-height:1.7;color:rgba(255,255,255,.78);}
+.tp-hero-list{display:flex;flex-wrap:wrap;gap:14px 28px;margin-top:40px;}
+.tp-hero-list span{
+  font-family:'Space Grotesk',sans-serif;font-size:14.5px;font-weight:600;
+  color:rgba(255,255,255,.85);padding-left:16px;position:relative;
+}
+.tp-hero-list span::before{
+  content:"";position:absolute;left:0;top:50%;transform:translateY(-50%);
+  width:6px;height:6px;border-radius:50%;background:#35C6B3;
+}
+.tp-hero-list span:first-child{padding-left:0;}
+.tp-hero-list span:first-child::before{display:none;}
+
+/* ---- Showcase ---- */
+.tp-showcase-section{padding:96px 0;background:#FFFFFF;}
+.tp-showcase{
+  background:linear-gradient(150deg,#073D38,#062E2B);
+  border-radius:32px;padding:64px;
+  display:grid;grid-template-columns:280px 1fr;gap:56px;
+}
+.tp-showcase-intro h2{
+  font-family:'Space Grotesk',sans-serif;font-weight:700;color:#FFFFFF;
+  font-size:clamp(26px,2.6vw,32px);line-height:1.2;
+}
+.tp-showcase-intro p{margin-top:18px;font-size:14.5px;line-height:1.7;color:rgba(255,255,255,.68);}
+
+.tp-card-grid{
+  display:grid;grid-template-columns:1.3fr 1fr 1fr;grid-template-rows:auto auto;gap:20px;
+}
+.tp-card{
+  position:relative;border-radius:20px;overflow:hidden;min-height:230px;
+  border:1px solid rgba(53,198,179,.22);
+  box-shadow:0 20px 44px -26px rgba(0,0,0,.6);
+  transition:transform .35s ease, box-shadow .35s ease;
+  display:flex;align-items:flex-end;
+}
+.tp-card-featured{grid-row:1 / 3;min-height:100%;}
+.tp-card:nth-child(2){grid-column:2;grid-row:1;}
+.tp-card:nth-child(3){grid-column:3;grid-row:1;}
+.tp-card:nth-child(4){grid-column:2;grid-row:2;}
+.tp-card:nth-child(5){grid-column:3;grid-row:2;}
+.tp-card-bg{position:absolute;inset:0;z-index:1;}
+.tp-card-bg img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease;}
+.tp-card-bg::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg, rgba(6,32,29,.15) 0%, rgba(6,32,29,.92) 88%);
+}
+.tp-card:hover{transform:translateY(-4px);box-shadow:0 26px 52px -22px rgba(0,0,0,.65), 0 0 0 1px rgba(53,198,179,.4);}
+.tp-card:hover .tp-card-bg img{transform:scale(1.06);}
+.tp-card-content{position:relative;z-index:2;padding:26px 24px;width:100%;}
+.tp-card-num{
+  font-family:'Space Grotesk',sans-serif;font-size:12.5px;font-weight:700;
+  color:#7FE3D2;opacity:.85;
+}
+.tp-card-content h3{
+  font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:700;color:#FFFFFF;margin-top:8px;
+}
+.tp-card-featured .tp-card-content h3{font-size:28px;}
+.tp-card-sub{display:block;margin-top:4px;font-size:12.5px;color:rgba(255,255,255,.65);}
+.tp-card-content p{margin-top:12px;font-size:13.5px;line-height:1.6;color:rgba(255,255,255,.72);max-width:320px;}
+.tp-card:not(.tp-card-featured) .tp-card-content p{display:none;}
+.tp-card-link{
+  display:inline-flex;align-items:center;gap:8px;margin-top:20px;
+  font-family:'Space Grotesk',sans-serif;font-size:13.5px;font-weight:600;color:#7FE3D2;
+}
+.tp-card-link em{font-style:normal;transition:transform .25s ease;}
+.tp-card:hover .tp-card-link em{transform:translateX(5px);}
+.tp-card-arrow{
+  position:absolute;bottom:22px;right:22px;font-style:normal;
+  font-size:17px;color:rgba(255,255,255,.75);transition:transform .25s ease, color .25s ease;
+}
+.tp-card:hover .tp-card-arrow{transform:translateX(5px);color:#7FE3D2;}
+
+/* ---- Info section ---- */
+.tp-info-section{background:#DDF4F0;padding:96px 0;}
+.tp-info-section h2{
+  font-family:'Space Grotesk',sans-serif;font-weight:700;color:#073D38;
+  font-size:clamp(26px,3vw,34px);max-width:640px;
+}
+.tp-info-lede{margin-top:16px;max-width:600px;font-size:15.5px;line-height:1.7;color:#3E5B57;}
+.tp-info-list{display:flex;flex-wrap:wrap;margin-top:48px;}
+.tp-info-item{padding:0 30px;border-left:1px solid rgba(7,61,56,.15);}
+.tp-info-item:first-child{padding-left:0;border-left:none;}
+.tp-info-num{display:block;font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:600;color:#5E8B84;opacity:.8;}
+.tp-info-item b{display:block;margin-top:6px;font-family:'Space Grotesk',sans-serif;font-size:17px;font-weight:700;color:#073D38;}
+.tp-info-item span:last-child{display:block;margin-top:4px;font-size:12.5px;color:#3E5B57;}
+
+/* ---- Large industrial image ---- */
+.tp-image-section{background:#FFFFFF;padding:0 0 96px;}
+.tp-image-block{position:relative;border-radius:28px;overflow:hidden;min-height:380px;display:flex;align-items:flex-end;}
+.tp-image-bg{position:absolute;inset:0;}
+.tp-image-bg img{width:100%;height:100%;object-fit:cover;}
+.tp-image-bg::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(90deg, rgba(6,32,29,.88) 0%, rgba(6,32,29,.35) 55%, rgba(53,198,179,.12) 100%);
+}
+.tp-image-caption{position:relative;z-index:2;padding:44px;max-width:520px;}
+.tp-image-caption h3{font-family:'Space Grotesk',sans-serif;font-weight:700;color:#FFFFFF;font-size:clamp(22px,2.4vw,28px);}
+.tp-image-caption p{margin-top:12px;font-size:14.5px;line-height:1.65;color:rgba(255,255,255,.78);}
+
+/* ---- Small CTA ---- */
+.tp-cta-section{background:#073D38;padding:88px 0;}
+.tp-cta{text-align:center;max-width:560px;margin:0 auto;}
+.tp-cta h2{font-family:'Space Grotesk',sans-serif;font-weight:700;color:#FFFFFF;font-size:clamp(24px,2.8vw,32px);}
+.tp-cta p{margin-top:14px;font-size:15px;line-height:1.65;color:rgba(255,255,255,.72);}
+.tp-cta-btn{
+  display:inline-flex;align-items:center;gap:8px;margin-top:28px;
+  background:#35C6B3;color:#062E2B;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:14.5px;
+  padding:14px 26px;border-radius:100px;transition:transform .2s ease, background .2s ease;
+}
+.tp-cta-btn:hover{transform:translateY(-2px);background:#4fd6c4;}
+.tp-cta-btn em{font-style:normal;}
+
+/* ---- Responsive ---- */
+@media (max-width: 980px){
+  .tp-showcase{grid-template-columns:1fr;padding:44px 32px;border-radius:24px;}
+  .tp-card-grid{grid-template-columns:1fr 1fr;}
+  .tp-card-featured{grid-column:1 / 3;grid-row:auto;min-height:280px;}
+  .tp-card:nth-child(2){grid-column:1;grid-row:auto;}
+  .tp-card:nth-child(3){grid-column:2;grid-row:auto;}
+  .tp-card:nth-child(4){grid-column:1;grid-row:auto;}
+  .tp-card:nth-child(5){grid-column:2;grid-row:auto;}
+  .tp-info-list{gap:20px;}
+}
+@media (max-width: 640px){
+  .tp-hero{padding:140px 0 64px;}
+  .tp-showcase{padding:32px 20px;}
+  .tp-card-grid{grid-template-columns:1fr;}
+  .tp-card-featured{grid-column:1;min-height:260px;}
+  .tp-card:nth-child(2),.tp-card:nth-child(3),.tp-card:nth-child(4),.tp-card:nth-child(5){grid-column:1;}
+  .tp-info-list{flex-direction:column;gap:18px;}
+  .tp-info-item{padding:0 0 0 0;border-left:none;border-top:1px solid rgba(7,61,56,.15);padding-top:16px;}
+  .tp-info-item:first-child{border-top:none;padding-top:0;}
+  .tp-image-caption{padding:28px;}
+  .tp-image-block{min-height:320px;}
+}
