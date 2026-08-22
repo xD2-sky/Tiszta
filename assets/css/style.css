@@ -185,6 +185,7 @@ section{position:relative;}
 
 /* SECTION generic */
 .section{padding:118px 0;}
+.section-cta-tight{padding:48px 0 118px;}
 .section.tight{padding:96px 0;}
 .bg-mint{background:var(--mint-50);}
 .bg-pine{background:var(--pine-900);color:rgba(255,255,255,.86);}
@@ -201,11 +202,6 @@ h2.title{font-size:clamp(28px,3.4vw,42px);font-weight:700;line-height:1.12;}
 .media-frame{
   position:relative;border-radius:var(--radius-lg);overflow:hidden;
   box-shadow:var(--shadow);
-}
-.media-frame::before{
-  content:"";position:absolute;left:0;top:0;bottom:0;width:6px;
-  background:linear-gradient(180deg,var(--teal-400),var(--pine-700));
-  z-index:2;
 }
 .media-frame img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/3;}
 
@@ -343,7 +339,6 @@ h2.title{font-size:clamp(28px,3.4vw,42px);font-weight:700;line-height:1.12;}
 .photo-card .cap{padding:22px 24px 26px;}
 .photo-card .cap b{font-size:16.5px;font-weight:700;color:var(--pine-900);}
 .photo-card .cap p{margin-top:6px;font-size:14px;color:var(--slate);line-height:1.6;}
-.photo-card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--teal-400);z-index:2;}
 
 /* FINANCIAL cards */
 .rev-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:52px;}
