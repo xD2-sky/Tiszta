@@ -1,5 +1,5 @@
 // TISZTA VÍZ — shared site behavior (nav scroll state, reveal-on-scroll,
-// desktop dropdowns, and mobile hamburger menu). Loaded on every page.
+// and mobile hamburger menu). Loaded on every page.
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -22,36 +22,6 @@ document.addEventListener('DOMContentLoaded', () => {
     revealEls.forEach(el => el.classList.add('in'));
   }
 
-  /* ---- Desktop dropdowns (hover on pointer devices, click/tap fallback) ---- */
-  const dropdownItems = document.querySelectorAll('.has-dropdown');
-  dropdownItems.forEach(item => {
-    const btn = item.querySelector('.nav-link-btn');
-    let hoverTimeout;
-
-    item.addEventListener('mouseenter', () => {
-      clearTimeout(hoverTimeout);
-      dropdownItems.forEach(i => i.classList.remove('open'));
-      item.classList.add('open');
-    });
-    item.addEventListener('mouseleave', () => {
-      hoverTimeout = setTimeout(() => item.classList.remove('open'), 150);
-    });
-
-    if (btn) {
-      btn.addEventListener('click', (e) => {
-        e.preventDefault();
-        const isOpen = item.classList.contains('open');
-        dropdownItems.forEach(i => i.classList.remove('open'));
-        if (!isOpen) item.classList.add('open');
-      });
-    }
-  });
-  document.addEventListener('click', (e) => {
-    if (!e.target.closest('.has-dropdown')) {
-      dropdownItems.forEach(i => i.classList.remove('open'));
-    }
-  });
-
   /* ---- Mobile hamburger + slide-down panel ---- */
   const navToggle = document.querySelector('.nav-toggle');
   const mobilePanel = document.querySelector('.mobile-panel');
@@ -61,21 +31,6 @@ document.addEventListener('DOMContentLoaded', () => {
       const open = navToggle.classList.toggle('open');
       mobilePanel.classList.toggle('open', open);
       document.body.style.overflow = open ? 'hidden' : '';
-    });
-
-    mobilePanel.querySelectorAll('.mobile-parent').forEach(parent => {
-      parent.addEventListener('click', () => {
-        const submenu = parent.nextElementSibling;
-        const isOpen = parent.classList.contains('open');
-        mobilePanel.querySelectorAll('.mobile-parent').forEach(p => {
-          p.classList.remove('open');
-          if (p.nextElementSibling) p.nextElementSibling.classList.remove('open');
-        });
-        if (!isOpen) {
-          parent.classList.add('open');
-          if (submenu) submenu.classList.add('open');
-        }
-      });
     });
 
     // Close mobile panel when a direct link is tapped
