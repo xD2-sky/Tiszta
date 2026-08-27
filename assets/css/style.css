@@ -810,3 +810,28 @@ footer{background:var(--pine-950);color:rgba(255,255,255,.6);padding:70px 0 34px
   .leader-grid{flex-direction:column;}
   .leader-photo{max-width:160px;}
 }
+
+/* ============================================================
+   ABOUT PAGE — Tagline explainer + Presence map placeholder
+   ============================================================ */
+.tagline-grid{display:flex;flex-wrap:wrap;gap:32px;margin-top:48px;}
+.tagline-item{flex:1 1 220px;}
+.tagline-item h3{font-size:19px;font-weight:700;color:var(--white);}
+.tagline-item p{margin-top:10px;font-size:14.5px;color:rgba(255,255,255,.72);line-height:1.65;}
+
+/* Light-background variant of the existing dashed placeholder-media */
+.placeholder-media-light{
+  width:100%;max-width:none;aspect-ratio:21/9;border-radius:var(--radius-md);
+  border:1.5px dashed rgba(11,56,51,.22);background:rgba(11,56,51,.03);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;
+  color:rgba(11,56,51,.4);margin-top:44px;
+}
+.placeholder-media-light .ph-icon svg{width:30px;height:30px;}
+.placeholder-media-light .ph-label{
+  font-family:'Space Grotesk',sans-serif;font-size:11.5px;font-weight:600;
+  letter-spacing:.08em;text-transform:uppercase;
+}
+
+@media (max-width: 640px){
+  .placeholder-media-light{aspect-ratio:4/3;}
+}
