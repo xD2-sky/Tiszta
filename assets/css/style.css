@@ -853,3 +853,14 @@ footer{background:var(--pine-950);color:rgba(255,255,255,.6);padding:70px 0 34px
 @media (max-width: 640px){
   .placeholder-media-light{aspect-ratio:4/3;}
 }
+
+/* Presence — real embedded Google Map */
+.presence-map{
+  width:100%;margin-top:44px;
+  border-radius:var(--radius-lg);overflow:hidden;
+  box-shadow:var(--shadow);
+}
+.presence-map iframe{width:100%;height:440px;border:0;display:block;}
+@media (max-width: 640px){
+  .presence-map iframe{height:320px;}
+}
