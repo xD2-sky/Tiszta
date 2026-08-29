@@ -220,7 +220,7 @@ h2.title{font-size:clamp(32px,3.9vw,52px);font-weight:700;line-height:1.1;letter
 /* CIRCULAR DIAGRAM - signature */
 .circular-wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:70px;align-items:center;}
 .loop-stage{position:relative;width:100%;aspect-ratio:1/1;max-width:460px;margin:0 auto;}
-.loop-stage.small{max-width:300px;}
+.loop-stage.small{max-width:440px;}
 .loop-center{
   position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
   width:34%;height:34%;border-radius:50%;
@@ -229,13 +229,13 @@ h2.title{font-size:clamp(32px,3.9vw,52px);font-weight:700;line-height:1.1;letter
   color:var(--white);text-align:center;box-shadow:0 20px 50px -15px rgba(11,56,51,.5);
   z-index:3;
 }
-.loop-center b{font-family:'Space Grotesk',sans-serif;font-size:15px;letter-spacing:.02em;}
-.loop-center span{font-size:10px;letter-spacing:.14em;color:var(--teal-300);margin-top:4px;text-transform:uppercase;}
+.loop-center b{font-family:'Space Grotesk',sans-serif;font-size:16.5px;letter-spacing:.02em;}
+.loop-center span{font-size:11px;letter-spacing:.14em;color:var(--teal-300);margin-top:4px;text-transform:uppercase;}
 .loop-node{
   position:absolute;width:22%;height:22%;border-radius:50%;
   background:var(--white);border:2px solid var(--teal-400);
   display:flex;align-items:center;justify-content:center;
-  font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:13px;color:var(--pine-900);
+  font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:14.5px;color:var(--pine-900);
   box-shadow:0 10px 26px -10px rgba(11,56,51,.3);
   z-index:2;
 }
