@@ -76,6 +76,18 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  /* ---- Newsletter form (static demo — no backend wired up) ---- */
+  const newsletterForm = document.getElementById('newsletter-form');
+  if (newsletterForm) {
+    newsletterForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const btn = newsletterForm.querySelector('button[type="submit"]');
+      const original = btn.textContent;
+      btn.textContent = 'Subscribed';
+      setTimeout(() => { btn.textContent = original; newsletterForm.reset(); }, 2200);
+    });
+  }
+
 });
 
 /* ---- Simple rule-based FAQ chat widget (no AI, no backend) ---- */
