@@ -103,8 +103,8 @@ section{position:relative;}
   box-shadow:0 8px 30px -12px rgba(0,0,0,.4);
 }
 .nav-left{display:flex;align-items:center;gap:12px;}
-.nav-logo-badge{width:42px;height:42px;border-radius:11px;background:var(--white);display:flex;align-items:center;justify-content:center;overflow:hidden;flex-shrink:0;box-shadow:0 4px 14px rgba(0,0,0,.2);}
-.nav-logo-badge img{width:76%;}
+.nav-logo-badge{height:42px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.nav-logo-badge img{height:100%;width:auto;}
 .nav-word{font-family:'Space Grotesk',sans-serif;color:var(--white);line-height:1.05;}
 .nav-word b{display:block;font-size:16px;font-weight:700;letter-spacing:.03em;}
 .nav-word span{display:block;font-size:9.5px;letter-spacing:.16em;color:var(--teal-300);text-transform:uppercase;margin-top:2px;}
@@ -312,7 +312,7 @@ h2.title{font-size:clamp(32px,3.9vw,52px);font-weight:700;line-height:1.1;letter
 footer{background:var(--pine-950);color:rgba(255,255,255,.6);padding:70px 0 34px;}
 .footer-top{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;padding-bottom:50px;border-bottom:1px solid rgba(255,255,255,.1);}
 .footer-brand{display:flex;gap:14px;align-items:center;}
-.footer-brand .nav-logo-badge{width:50px;height:50px;}
+.footer-brand .nav-logo-badge{height:50px;}
 .footer-brand-word b{color:var(--white);font-size:18px;}
 .footer-tagline{margin-top:18px;font-size:14px;line-height:1.7;max-width:280px;color:rgba(255,255,255,.55);}
 .footer-col h4{font-family:'Space Grotesk',sans-serif;color:var(--white);font-size:14px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:18px;}
