@@ -879,10 +879,26 @@ footer{background:var(--pine-950);color:rgba(255,255,255,.6);padding:70px 0 34px
 /* ============================================================
    ABOUT PAGE — Tagline explainer + Presence map placeholder
    ============================================================ */
-.tagline-grid{display:flex;flex-wrap:wrap;gap:32px;margin-top:48px;}
-.tagline-item{flex:1 1 220px;}
-.tagline-item h3{font-size:19px;font-weight:700;color:var(--white);}
-.tagline-item p{margin-top:10px;font-size:14.5px;color:rgba(255,255,255,.72);line-height:1.65;}
+.tagline-card-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:48px;}
+.tagline-card{
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius-lg);
+  padding:32px 26px;transition:transform .3s cubic-bezier(.16,1,.3,1), background .3s ease, border-color .3s ease;
+}
+.tagline-card:hover{transform:translateY(-5px);background:rgba(255,255,255,.09);border-color:rgba(53,198,179,.4);}
+.tagline-icon{
+  width:48px;height:48px;border-radius:12px;background:rgba(53,198,179,.15);
+  display:flex;align-items:center;justify-content:center;color:var(--teal-300);margin-bottom:20px;
+}
+.tagline-icon svg{width:24px;height:24px;}
+.tagline-card h3{font-size:18px;font-weight:700;color:var(--white);}
+.tagline-card p{margin-top:10px;font-size:14px;color:rgba(255,255,255,.72);line-height:1.65;}
+
+@media (max-width: 980px){
+  .tagline-card-grid{grid-template-columns:repeat(2,1fr);}
+}
+@media (max-width: 600px){
+  .tagline-card-grid{grid-template-columns:1fr;}
+}
 
 /* Light-background variant of the existing dashed placeholder-media */
 .placeholder-media-light{
