@@ -72,6 +72,9 @@
       </div>
 
       <form class="contact-form" id="contact-form">
+        <input type="hidden" name="access_key" value="6faa49df-bf96-45e6-aa2a-de43390dc5f0">
+        <input type="hidden" name="subject" value="New enquiry from Tiszta Víz website">
+        <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
         <div class="form-row">
           <div class="form-field">
             <label for="f-name">Name</label>
@@ -114,6 +117,7 @@
           <textarea id="f-message" name="message" required></textarea>
         </div>
         <button type="submit" class="btn btn-primary">Send Inquiry</button>
+        <div class="form-status" id="contact-status" role="status" aria-live="polite"></div>
       </form>
     </div>
 
@@ -123,8 +127,12 @@
         <p>Occasional updates on projects, technical articles and company news &mdash; no spam.</p>
       </div>
       <form class="newsletter-form" id="newsletter-form">
-        <input type="email" placeholder="Your email address" required>
+        <input type="hidden" name="access_key" value="6faa49df-bf96-45e6-aa2a-de43390dc5f0">
+        <input type="hidden" name="subject" value="New newsletter sign-up from Tiszta Víz website">
+        <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+        <input type="email" name="email" placeholder="Your email address" required>
         <button type="submit" class="btn btn-primary">Subscribe</button>
+        <div class="form-status" id="newsletter-status" role="status" aria-live="polite"></div>
       </form>
     </div>
 

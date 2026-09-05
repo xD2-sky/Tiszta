@@ -62,29 +62,79 @@ document.addEventListener('DOMContentLoaded', () => {
       }, { rootMargin: '-140px 0px -60% 0px', threshold: 0 });
       storySections.forEach(sec => storyIO.observe(sec));
     }
+
+    /* Solid background only once the sub-nav is actually pinned under the main nav */
+    const sentinel = document.getElementById('storyNavSentinel');
+    if (sentinel && 'IntersectionObserver' in window) {
+      const pinIO = new IntersectionObserver(
+        ([entry]) => storyNav.classList.toggle('pinned', !entry.isIntersecting),
+        { rootMargin: '-71px 0px 0px 0px', threshold: 0 }
+      );
+      pinIO.observe(sentinel);
+    }
   }
 
-  /* ---- Contact form (static demo — no backend wired up) ---- */
+  /* ---- Shared Web3Forms submit handler (real, no backend of our own needed) ---- */
+  const submitToWeb3Forms = async (form, statusEl, successMsg, busyText) => {
+    const btn = form.querySelector('button[type="submit"]');
+    const original = btn.textContent;
+    btn.textContent = busyText;
+    btn.disabled = true;
+    statusEl.classList.remove('show', 'success', 'error');
+
+    const showStatus = (text, kind) => {
+      statusEl.textContent = text;
+      statusEl.classList.add('show', kind);
+    };
+
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+      const data = await res.json();
+      if (data.success) {
+        showStatus(successMsg, 'success');
+        form.reset();
+      } else {
+        showStatus("Something went wrong — please email us directly instead.", 'error');
+        console.error('Web3Forms error:', data.message);
+      }
+    } catch (err) {
+      showStatus("Network error — please email us directly instead.", 'error');
+      console.error('Web3Forms network error:', err);
+    }
+    btn.textContent = original;
+    btn.disabled = false;
+    setTimeout(() => statusEl.classList.remove('show'), 8000);
+  };
+
+  /* ---- Contact form ---- */
   const contactForm = document.getElementById('contact-form');
-  if (contactForm) {
+  const contactStatus = document.getElementById('contact-status');
+  if (contactForm && contactStatus) {
     contactForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      const btn = contactForm.querySelector('button[type="submit"]');
-      const original = btn.textContent;
-      btn.textContent = 'Message sent';
-      setTimeout(() => { btn.textContent = original; contactForm.reset(); }, 2200);
+      submitToWeb3Forms(
+        contactForm, contactStatus,
+        "✓ Your enquiry has been sent — we'll follow up shortly.",
+        'Sending…'
+      );
     });
   }
 
-  /* ---- Newsletter form (static demo — no backend wired up) ---- */
+  /* ---- Newsletter form ---- */
   const newsletterForm = document.getElementById('newsletter-form');
-  if (newsletterForm) {
+  const newsletterStatus = document.getElementById('newsletter-status');
+  if (newsletterForm && newsletterStatus) {
     newsletterForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      const btn = newsletterForm.querySelector('button[type="submit"]');
-      const original = btn.textContent;
-      btn.textContent = 'Subscribed';
-      setTimeout(() => { btn.textContent = original; newsletterForm.reset(); }, 2200);
+      submitToWeb3Forms(
+        newsletterForm, newsletterStatus,
+        "✓ You're subscribed — thanks for joining.",
+        'Submitting…'
+      );
     });
   }
 

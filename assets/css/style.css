@@ -508,9 +508,15 @@ footer{background:var(--pine-950);color:rgba(255,255,255,.6);padding:70px 0 34px
 /* --- Chapter sub-nav: sticks under the main nav as you scroll --- */
 .story-nav{
   position:sticky;top:70px;z-index:150;
+  background:var(--mint-50);border-bottom:none;
+  transition:background .25s ease, backdrop-filter .25s ease, box-shadow .25s ease;
+}
+.story-nav.pinned{
   background:rgba(255,255,255,.94);backdrop-filter:blur(10px);
+  box-shadow:0 4px 16px -8px rgba(11,56,51,.15);
   border-bottom:1px solid rgba(11,56,51,.08);
 }
+#storyNavSentinel{height:1px;}
 .story-nav-inner{
   display:flex;gap:6px;padding:13px 32px;
   overflow-x:auto;-ms-overflow-style:none;scrollbar-width:none;
@@ -1092,3 +1098,14 @@ footer{background:var(--pine-950);color:rgba(255,255,255,.6);padding:70px 0 34px
 .kh-back-link{display:inline-flex;align-items:center;gap:8px;margin-top:40px;font-weight:600;color:var(--teal-500);}
 .kh-crumb{font-size:13px;color:var(--slate);margin-bottom:8px;}
 .kh-crumb a{color:var(--teal-500);}
+
+/* Form submission status message (Web3Forms success/error feedback) */
+.form-status{
+  margin-top:14px;padding:0;font-size:13.5px;font-weight:600;
+  max-height:0;opacity:0;overflow:hidden;
+  transition:max-height .3s ease, opacity .25s ease, margin-top .3s ease;
+}
+.form-status.show{max-height:80px;opacity:1;margin-top:14px;}
+.form-status.success{color:var(--teal-500);}
+.form-status.error{color:#b3452e;}
+.newsletter-form .form-status{flex-basis:100%;}
