@@ -1110,3 +1110,20 @@ footer{background:var(--pine-950);color:rgba(255,255,255,.6);padding:70px 0 34px
 .form-status.success{color:var(--teal-500);}
 .form-status.error{color:#b3452e;}
 .newsletter-form .form-status{flex-basis:100%;}
+
+/* Client/partner logo placeholder grid (Home page) */
+.logo-placeholder-grid{
+  display:flex;flex-wrap:wrap;gap:16px;margin-top:44px;margin-bottom:28px;
+}
+.logo-placeholder-box{
+  width:140px;height:72px;border-radius:10px;
+  border:1.5px dashed rgba(11,56,51,.22);background:rgba(11,56,51,.03);
+  display:flex;align-items:center;justify-content:center;
+}
+.logo-placeholder-box span{
+  font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:600;
+  letter-spacing:.06em;text-transform:uppercase;color:rgba(11,56,51,.35);
+}
+@media (max-width: 640px){
+  .logo-placeholder-box{width:calc(50% - 8px);}
+}
