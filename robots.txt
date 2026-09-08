@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://xd2-sky.github.io/Tiszta/sitemap.xml
