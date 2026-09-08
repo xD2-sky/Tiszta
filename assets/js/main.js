@@ -116,6 +116,13 @@ document.addEventListener('DOMContentLoaded', () => {
   if (contactForm && contactStatus) {
     contactForm.addEventListener('submit', (e) => {
       e.preventDefault();
+      const attachment = contactForm.querySelector('input[name="attachment"]');
+      if (attachment && attachment.files[0] && attachment.files[0].size > 5 * 1024 * 1024) {
+        contactStatus.textContent = 'That file is over 5MB — please attach a smaller file or email it to us directly.';
+        contactStatus.classList.add('show', 'error');
+        setTimeout(() => contactStatus.classList.remove('show'), 8000);
+        return;
+      }
       submitToWeb3Forms(
         contactForm, contactStatus,
         "✓ Your enquiry has been sent — we'll follow up shortly.",

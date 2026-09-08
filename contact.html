@@ -127,6 +127,10 @@
           <label for="f-message">Message</label>
           <textarea id="f-message" name="message" required></textarea>
         </div>
+        <div class="form-field">
+          <label for="f-attachment">Attach RFP / Tender Document <span class="field-optional">(optional, PDF or Word, max 5MB)</span></label>
+          <input type="file" id="f-attachment" name="attachment" accept=".pdf,.doc,.docx">
+        </div>
         <button type="submit" class="btn btn-primary">Send Inquiry</button>
         <div class="form-status" id="contact-status" role="status" aria-live="polite"></div>
       </form>

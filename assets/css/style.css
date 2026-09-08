@@ -163,7 +163,6 @@ section{position:relative;}
 /* SECTION generic */
 .section{padding:96px 0;}
 .section > .wrap{width:100%;}
-.section.tight{padding:64px 0;}
 .bg-mint{background:var(--mint-50);}
 .bg-pine{background:var(--pine-900);color:rgba(255,255,255,.86);}
 .bg-pine h2, .bg-pine h3{color:var(--white);}
@@ -458,6 +457,14 @@ footer{background:var(--pine-950);color:rgba(255,255,255,.6);padding:70px 0 34px
 }
 .form-field textarea{resize:vertical;min-height:120px;}
 .form-field select{cursor:pointer;}
+.form-field .field-optional{text-transform:none;font-weight:400;letter-spacing:0;color:var(--slate);opacity:.75;}
+.form-field input[type="file"]{
+  padding:11px 16px;cursor:pointer;font-size:13.5px;
+}
+.form-field input[type="file"]::file-selector-button{
+  border:none;border-radius:8px;background:var(--pine-950);color:var(--white);
+  padding:7px 14px;font-size:12.5px;font-weight:600;margin-right:12px;cursor:pointer;
+}
 .contact-form .btn-primary{margin-top:26px;width:100%;justify-content:center;border:none;}
 
 /* Newsletter signup strip */
@@ -530,22 +537,6 @@ footer{background:var(--pine-950);color:rgba(255,255,255,.6);padding:70px 0 34px
 .story-nav a:hover{color:var(--pine-900);}
 .story-nav a.active{background:var(--mint-100);color:var(--pine-900);}
 
-/* --- Our Journey: vertical timeline (dark section) --- */
-.timeline{position:relative;margin-top:60px;}
-.timeline::before{
-  content:"";position:absolute;left:27px;top:6px;bottom:6px;width:2px;
-  background:linear-gradient(180deg, var(--teal-400), rgba(255,255,255,.1));
-}
-.timeline-item{position:relative;padding-left:76px;}
-.timeline-item + .timeline-item{margin-top:64px;}
-.timeline-marker{
-  position:absolute;left:18px;top:6px;width:18px;height:18px;border-radius:50%;
-  background:var(--pine-950);border:3px solid var(--teal-400);
-  box-shadow:0 0 0 6px rgba(46,179,158,.14);
-}
-.timeline-content h3{color:var(--white);font-size:19px;font-weight:700;margin-top:22px;}
-.timeline-content p{margin-top:10px;color:rgba(255,255,255,.7);font-size:14.5px;line-height:1.72;max-width:640px;}
-
 /* --- Reusable image placeholder (for content the client will add later) --- */
 .placeholder-media{
   width:100%;max-width:520px;aspect-ratio:16/9;border-radius:var(--radius-md);
@@ -559,30 +550,7 @@ footer{background:var(--pine-950);color:rgba(255,255,255,.6);padding:70px 0 34px
   letter-spacing:.08em;text-transform:uppercase;
 }
 
-/* --- Why Tiszta Víz: numbered advantage grid (dark section) --- */
-.why-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:24px;margin-top:48px;}
-.why-card{
-  flex:1 1 300px;max-width:368px;
-  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);
-  border-radius:var(--radius-lg);padding:32px 28px;
-  transition:transform .35s cubic-bezier(.16,1,.3,1), background .35s cubic-bezier(.16,1,.3,1);
-}
-.why-card:hover{transform:translateY(-6px);background:rgba(255,255,255,.07);}
-.why-num{
-  width:38px;height:38px;border-radius:50%;
-  border:1.5px solid rgba(141,220,201,.4);color:var(--teal-300);
-  display:flex;align-items:center;justify-content:center;
-  font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:14.5px;
-  margin-bottom:18px;
-}
-.why-card h3{color:var(--white);font-size:17.5px;font-weight:700;}
-.why-card p{margin-top:8px;color:rgba(255,255,255,.68);font-size:14.5px;line-height:1.65;}
-
 @media (max-width: 640px){
-  .why-card{flex:1 1 100%;max-width:none;}
-  .timeline::before{left:21px;}
-  .timeline-item{padding-left:58px;}
-  .timeline-marker{left:12px;width:16px;height:16px;}
   .story-nav{top:64px;}
 }
 
@@ -822,14 +790,12 @@ footer{background:var(--pine-950);color:rgba(255,255,255,.6);padding:70px 0 34px
 }
 
 /* Final CTA with background photo (Arrowhead-inspired) */
-.cta-banner-photo{position:relative;overflow:hidden;}
 .cta-banner-bg{position:absolute;inset:0;z-index:0;}
 .cta-banner-bg img{width:100%;height:100%;object-fit:cover;object-position:50% 0%;}
 .cta-banner-bg::after{
   content:"";position:absolute;inset:0;
   background:linear-gradient(120deg, rgba(6,32,29,.94) 25%, rgba(11,56,51,.8) 60%, rgba(53,198,179,.25) 100%);
 }
-.cta-banner-photo .cta-content{position:relative;z-index:1;}
 
 /* Full-bleed CTA — edge-to-edge, no surrounding white section, flows straight into footer */
 .section-cta-fullbleed{position:relative;min-height:380px;display:flex;align-items:center;overflow:hidden;}
@@ -905,23 +871,6 @@ footer{background:var(--pine-950);color:rgba(255,255,255,.6);padding:70px 0 34px
 }
 @media (max-width: 600px){
   .tagline-card-grid{grid-template-columns:1fr;}
-}
-
-/* Light-background variant of the existing dashed placeholder-media */
-.placeholder-media-light{
-  width:100%;max-width:none;aspect-ratio:21/9;border-radius:var(--radius-md);
-  border:1.5px dashed rgba(11,56,51,.22);background:rgba(11,56,51,.03);
-  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;
-  color:rgba(11,56,51,.4);margin-top:44px;
-}
-.placeholder-media-light .ph-icon svg{width:30px;height:30px;}
-.placeholder-media-light .ph-label{
-  font-family:'Space Grotesk',sans-serif;font-size:11.5px;font-weight:600;
-  letter-spacing:.08em;text-transform:uppercase;
-}
-
-@media (max-width: 640px){
-  .placeholder-media-light{aspect-ratio:4/3;}
 }
 
 /* Presence — real embedded Google Map */
