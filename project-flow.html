@@ -19,24 +19,16 @@
   <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
     <li><a href="about.html">About Us</a></li>
-    <li><a href="knowledge-hub.html">Knowledge Hub</a></li>
-    <li><a href="projects.html">Projects</a></li>
-    <li><a href="saas.html">SaaS</a></li>
-    <li><a href="media.html">Media &amp; Press</a></li>
     <li><a href="careers.html">Careers</a></li>
     <li><a href="contact.html" class="btn btn-primary nav-cta">Get in touch</a></li>
   </ul>
-  <button class="nav-toggle" aria-label="Open menu"><span></span><span></span><span></span></button>
+  <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-panel"><span></span><span></span><span></span></button>
 </nav>
 
-<div class="mobile-panel">
+<div class="mobile-panel" id="mobile-panel">
   <ul>
       <li><a href="index.html">Home</a></li>
       <li><a href="about.html">About Us</a></li>
-      <li><a href="knowledge-hub.html">Knowledge Hub</a></li>
-      <li><a href="projects.html">Projects</a></li>
-      <li><a href="saas.html">SaaS</a></li>
-      <li><a href="media.html">Media &amp; Press</a></li>
       <li><a href="careers.html">Careers</a></li>
       <li><a href="contact.html">Contact</a></li>
   </ul>
@@ -120,7 +112,7 @@
     </div>
     <div class="chat-messages" id="chatMessages"></div>
     <div class="chat-input-row">
-      <input type="text" id="chatInput" placeholder="Type your question…" autocomplete="off">
+      <input type="text" id="chatInput" placeholder="Type your question…" autocomplete="off" aria-label="Type your question for the chat assistant">
       <button class="chat-send-btn" id="chatSend" aria-label="Send">
         <svg viewBox="0 0 24 24" fill="none"><path d="M4 12l16-7-7 16-2-7-7-2z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </button>

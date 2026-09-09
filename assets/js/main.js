@@ -31,6 +31,8 @@ document.addEventListener('DOMContentLoaded', () => {
       const open = navToggle.classList.toggle('open');
       mobilePanel.classList.toggle('open', open);
       document.body.style.overflow = open ? 'hidden' : '';
+      navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      navToggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
     });
 
     // Close mobile panel when a direct link is tapped
@@ -39,6 +41,8 @@ document.addEventListener('DOMContentLoaded', () => {
         navToggle.classList.remove('open');
         mobilePanel.classList.remove('open');
         document.body.style.overflow = '';
+        navToggle.setAttribute('aria-expanded', 'false');
+        navToggle.setAttribute('aria-label', 'Open menu');
       });
     });
   }
@@ -150,10 +154,10 @@ document.addEventListener('DOMContentLoaded', () => {
 /* ---- Simple rule-based FAQ chat widget (no AI, no backend) ---- */
 document.addEventListener('DOMContentLoaded', function () {
   var FAQ = [
-    { keywords: ['stp', 'sewage'], q: 'I need an STP', a: 'We design Sewage Treatment Plants (STP) for municipal and industrial applications. <a href="knowledge-hub.html">Learn more in our Knowledge Hub &rarr;</a>' },
+    { keywords: ['stp', 'sewage'], q: 'I need an STP', a: 'We design Sewage Treatment Plants (STP) for municipal and industrial applications. <a href="technologies.html">See our technologies &rarr;</a> or <a href="contact.html">get in touch to discuss your project &rarr;</a>' },
     { keywords: ['mbr', 'membrane bioreactor'], q: 'What is MBR?', a: 'MBR (Membrane Bioreactor) combines biological treatment with membrane filtration for high-quality treated water. <a href="technologies.html">See all our technologies &rarr;</a>' },
     { keywords: ['start a project', 'quote', 'hire', 'work with you'], q: 'I want to start a project', a: 'Great &mdash; the best next step is to reach our team directly. <a href="contact.html">Contact us &rarr;</a>' },
-    { keywords: ['your projects', 'portfolio', 'show me'], q: 'Show me your projects', a: 'Take a look at our project portfolio here: <a href="projects.html">View Projects &rarr;</a>' },
+    { keywords: ['your projects', 'portfolio', 'show me'], q: 'Show me your projects', a: 'We&rsquo;re finalising our project portfolio for the site. In the meantime, <a href="contact.html">get in touch &rarr;</a> and we&rsquo;d be happy to share examples directly.' },
     { keywords: ['what does tiszta', 'what do you do', 'who are you', 'about tiszta'], q: 'What does Tiszta Víz do?', a: 'Tiszta Víz delivers sustainable engineering solutions across Water, Energy, and Infrastructure &mdash; from concept to commissioning. <a href="about.html">Learn more about us &rarr;</a>' },
     { keywords: ['technolog'], q: 'What technologies do you use?', a: 'We work with SBR, MBR, RO/UF, Biogas and ZLD systems, selected to fit each project. <a href="technologies.html">Explore our technologies &rarr;</a>' },
     { keywords: ['locat', 'address', 'office', 'where are you'], q: 'Where are you located?', a: 'You can find our location on the map on our About page. <a href="about.html#presence">View our location &rarr;</a>' },

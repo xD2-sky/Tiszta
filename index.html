@@ -40,24 +40,16 @@
   <ul class="nav-links">
     <li><a href="index.html" class="active">Home</a></li>
     <li><a href="about.html">About Us</a></li>
-    <li><a href="knowledge-hub.html">Knowledge Hub</a></li>
-    <li><a href="projects.html">Projects</a></li>
-    <li><a href="saas.html">SaaS</a></li>
-    <li><a href="media.html">Media &amp; Press</a></li>
     <li><a href="careers.html">Careers</a></li>
     <li><a href="contact.html" class="btn btn-primary nav-cta">Get in touch</a></li>
   </ul>
-  <button class="nav-toggle" aria-label="Open menu"><span></span><span></span><span></span></button>
+  <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-panel"><span></span><span></span><span></span></button>
 </nav>
 
-<div class="mobile-panel">
+<div class="mobile-panel" id="mobile-panel">
   <ul>
       <li><a href="index.html">Home</a></li>
       <li><a href="about.html">About Us</a></li>
-      <li><a href="knowledge-hub.html">Knowledge Hub</a></li>
-      <li><a href="projects.html">Projects</a></li>
-      <li><a href="saas.html">SaaS</a></li>
-      <li><a href="media.html">Media &amp; Press</a></li>
       <li><a href="careers.html">Careers</a></li>
       <li><a href="contact.html">Contact</a></li>
   </ul>
@@ -77,7 +69,7 @@
     <p class="hero-sub reveal-item">Tiszta Víz delivers sustainable engineering solutions across Water, Energy, and Infrastructure &mdash; combining global technology with local execution, from concept to commissioning.</p>
     <div class="hero-actions reveal-item">
       <a href="contact.html" class="btn btn-primary">Start a Project</a>
-      <a href="#what-we-do" class="btn btn-ghost">Explore Our Solutions</a>
+      <a href="#our-approach" class="btn btn-ghost">Explore Our Solutions</a>
     </div>
   </div>
 </header>
@@ -99,6 +91,7 @@
   </div>
 </section>
 
+<!-- HIDDEN — deferred for initial launch, page/section not yet ready. Remove this comment wrapper to restore.
 <section class="section bg-mint" id="what-we-do">
   <div class="wrap reveal">
     <div class="section-label reveal-item">What we do</div>
@@ -175,9 +168,9 @@
     </div>
   </div>
 </section>
+-->
 
-<!-- HIDDEN — not in PDF's Home page spec (Section 4.1). Remove this comment wrapper to restore.
-<section class="section">
+<section class="section bg-mint" id="our-approach">
   <div class="wrap split reveal">
     <div class="split-text reveal-item">
       <div class="section-label">Water &middot; Energy &middot; Environment</div>
@@ -200,8 +193,8 @@
     </div>
   </div>
 </section>
--->
 
+<!-- HIDDEN — deferred for initial launch, page/section not yet ready. Remove this comment wrapper to restore.
 <section class="section">
   <div class="wrap reveal">
     <div class="section-label reveal-item">Proof of execution</div>
@@ -244,7 +237,9 @@
     </a>
   </div>
 </section>
+-->
 
+<!-- HIDDEN — deferred for initial launch, page/section not yet ready. Remove this comment wrapper to restore.
 <section class="section bg-mint">
   <div class="wrap reveal">
     <div class="section-label reveal-item">Technical authority</div>
@@ -272,7 +267,9 @@
     </a>
   </div>
 </section>
+-->
 
+<!-- HIDDEN — deferred for initial launch, page/section not yet ready. Remove this comment wrapper to restore.
 <section class="section" id="press">
   <div class="wrap reveal">
     <div class="section-label reveal-item">Newsroom</div>
@@ -283,7 +280,9 @@
     </div>
   </div>
 </section>
+-->
 
+<!-- HIDDEN — deferred for initial launch, page/section not yet ready. Remove this comment wrapper to restore.
 <section class="section bg-mint" id="partners">
   <div class="wrap reveal">
     <div class="section-label reveal-item">Working together</div>
@@ -304,9 +303,9 @@
     </div>
   </div>
 </section>
+-->
 
-<!-- HIDDEN — not in PDF's Home page spec (Section 4.1). Remove this comment wrapper to restore.
-<section class="section bg-mint">
+<section class="section">
   <div class="wrap reveal">
     <div class="section-label reveal-item">Why Tiszta Víz</div>
     <h2 class="title reveal-item">Built on Engineering, Not Just Ambition</h2>
@@ -338,7 +337,6 @@
     </div>
   </div>
 </section>
--->
 
 
 <section class="section-cta-fullbleed" id="contact">
@@ -407,7 +405,7 @@
     </div>
     <div class="chat-messages" id="chatMessages"></div>
     <div class="chat-input-row">
-      <input type="text" id="chatInput" placeholder="Type your question…" autocomplete="off">
+      <input type="text" id="chatInput" placeholder="Type your question…" autocomplete="off" aria-label="Type your question for the chat assistant">
       <button class="chat-send-btn" id="chatSend" aria-label="Send">
         <svg viewBox="0 0 24 24" fill="none"><path d="M4 12l16-7-7 16-2-7-7-2z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </button>
