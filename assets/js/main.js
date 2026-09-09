@@ -149,6 +149,27 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  /* ---- Careers interest-registration form ---- */
+  const careersForm = document.getElementById('careers-form');
+  const careersStatus = document.getElementById('careers-status');
+  if (careersForm && careersStatus) {
+    careersForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const resume = careersForm.querySelector('input[name="attachment"]');
+      if (resume && resume.files[0] && resume.files[0].size > 5 * 1024 * 1024) {
+        careersStatus.textContent = 'That file is over 5MB — please attach a smaller file or email it to us directly.';
+        careersStatus.classList.add('show', 'error');
+        setTimeout(() => careersStatus.classList.remove('show'), 8000);
+        return;
+      }
+      submitToWeb3Forms(
+        careersForm, careersStatus,
+        "✓ Thanks — we've received your details and will reach out if a role fits.",
+        'Submitting…'
+      );
+    });
+  }
+
 });
 
 /* ---- Simple rule-based FAQ chat widget (no AI, no backend) ---- */

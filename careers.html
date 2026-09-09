@@ -56,28 +56,78 @@
 
 <section class="section">
   <div class="wrap reveal">
-    <div class="section-label">Coming soon</div>
-    <h2 class="title">Join Tiszta Víz</h2>
-    <p class="lede" style="max-width:640px;">This section will support our growing team, including:</p>
+    <div class="section-label">Careers</div>
+    <h2 class="title">Why Tiszta Víz</h2>
+    <p class="lede" style="max-width:640px;">We're a small, growing engineering team working on real water, energy and environmental infrastructure &mdash; not a single specialism in isolation.</p>
 
-    <div class="feature-list" style="margin-top:48px;max-width:640px;">
-      <div class="feature-item">
-        <div class="feature-dot">01</div>
-        <div><h3>Current Openings</h3><p>A listing of open roles as they become available.</p></div>
+    <div class="why-card-grid cols-3" style="margin-top:44px;">
+      <div class="why-card">
+        <div class="why-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.1-3.1a5 5 0 0 1-6.4 6.4L6.7 20.3a2 2 0 0 1-2.8-2.8L11.6 9a5 5 0 0 1 6.4-6.4l-3.1 3.1Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3>Engineering-led work</h3>
+        <p>Hands-on involvement in real infrastructure &mdash; from STP and WTP projects to desalination and water reuse systems.</p>
       </div>
-      <div class="feature-item">
-        <div class="feature-dot">02</div>
-        <div><h3>Life at Tiszta Víz</h3><p>A look at our culture and ways of working.</p></div>
+      <div class="why-card">
+        <div class="why-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="7" y="7" width="10" height="10" rx="1.5" stroke="currentColor" stroke-width="1.5"/><path d="M9.5 3.5v3M14.5 3.5v3M9.5 17.5v3M14.5 17.5v3M3.5 9.5h3M3.5 14.5h3M17.5 9.5h3M17.5 14.5h3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+        <h3>Cross-disciplinary scope</h3>
+        <p>Work spans water, energy and environmental engineering, considered as one connected discipline.</p>
       </div>
-      <div class="feature-item">
-        <div class="feature-dot">03</div>
-        <div><h3>Application Form</h3><p>A simple way to apply, with resume upload.</p></div>
+      <div class="why-card">
+        <div class="why-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12.5 10 17 19 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3>A growing team</h3>
+        <p>Join early as we scale our project delivery and technical capability.</p>
       </div>
     </div>
+  </div>
+</section>
 
-    <div class="stub-notice">
-      <p>This section is under active development and will be published progressively, following our phased website rollout.</p>
-    </div>
+<section class="section bg-mint">
+  <div class="wrap reveal">
+    <div class="section-label">Register your interest</div>
+    <h2 class="title">No open roles listed yet? Get on our radar.</h2>
+    <p class="lede" style="max-width:640px;">We don't have specific openings published on the site yet, but we're always glad to hear from engineers and professionals interested in Tiszta Víz. Share your background below and we'll reach out when a relevant role opens up.</p>
+
+    <form class="contact-form" id="careers-form" style="margin-top:36px;max-width:640px;">
+      <input type="hidden" name="access_key" value="6faa49df-bf96-45e6-aa2a-de43390dc5f0">
+      <input type="hidden" name="subject" value="New career interest registration from Tiszta Víz website">
+      <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+      <div class="form-row">
+        <div class="form-field">
+          <label for="c-name">Name</label>
+          <input type="text" id="c-name" name="name" required>
+        </div>
+        <div class="form-field">
+          <label for="c-email">Email</label>
+          <input type="email" id="c-email" name="email" required>
+        </div>
+      </div>
+      <div class="form-row" style="margin-top:20px;">
+        <div class="form-field">
+          <label for="c-phone">Phone <span class="field-optional">(optional)</span></label>
+          <input type="tel" id="c-phone" name="phone">
+        </div>
+        <div class="form-field">
+          <label for="c-area">Area of Interest</label>
+          <select id="c-area" name="area_of_interest">
+            <option value="">Select an area&hellip;</option>
+            <option value="Engineering / Design">Engineering &amp; Design</option>
+            <option value="Project Management">Project Management</option>
+            <option value="Site &amp; Operations">Site &amp; Operations</option>
+            <option value="Business Development">Business Development</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-field">
+        <label for="c-message">A bit about you <span class="field-optional">(optional)</span></label>
+        <textarea id="c-message" name="message" placeholder="Your background, experience, and the kind of role you're looking for."></textarea>
+      </div>
+      <div class="form-field">
+        <label for="c-resume">Resume / CV <span class="field-optional">(PDF or Word, max 5MB)</span></label>
+        <input type="file" id="c-resume" name="attachment" accept=".pdf,.doc,.docx">
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+      <div class="form-status" id="careers-status" role="status" aria-live="polite"></div>
+    </form>
   </div>
 </section>
 
