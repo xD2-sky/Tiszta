@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ---- Shared Web3Forms submit handler (real, no backend of our own needed) ---- */
-  const submitToWeb3Forms = async (form, statusEl, successMsg, busyText) => {
+  const submitToWeb3Forms = async (form, statusEl, successMsg, busyText, formName) => {
     const btn = form.querySelector('button[type="submit"]');
     const original = btn.textContent;
     btn.textContent = busyText;
@@ -101,6 +101,11 @@ document.addEventListener('DOMContentLoaded', () => {
       if (data.success) {
         showStatus(successMsg, 'success');
         form.reset();
+        // Conversion tracking (see assets/js/analytics.js) — a safe no-op
+        // until real Google/Meta IDs are configured there.
+        if (typeof trackFormConversion === 'function' && formName) {
+          trackFormConversion(formName);
+        }
       } else {
         showStatus("Something went wrong — please email us directly instead.", 'error');
         console.error('Web3Forms error:', data.message);
@@ -130,7 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
       submitToWeb3Forms(
         contactForm, contactStatus,
         "✓ Your enquiry has been sent — we'll follow up shortly.",
-        'Sending…'
+        'Sending…', 'contact'
       );
     });
   }
@@ -144,7 +149,7 @@ document.addEventListener('DOMContentLoaded', () => {
       submitToWeb3Forms(
         newsletterForm, newsletterStatus,
         "✓ You're subscribed — thanks for joining.",
-        'Submitting…'
+        'Submitting…', 'newsletter'
       );
     });
   }
@@ -165,7 +170,7 @@ document.addEventListener('DOMContentLoaded', () => {
       submitToWeb3Forms(
         careersForm, careersStatus,
         "✓ Thanks — we've received your details and will reach out if a role fits.",
-        'Submitting…'
+        'Submitting…', 'careers'
       );
     });
   }
